@@ -2,8 +2,8 @@
 
 html, body {
 	height: 100%;
-	/*background: #FAF8F4;*/
-	background: #FFFFFF;
+	background: #FAF8F4;
+	/*background: #FFFFFF;*/
 }
 
 body {
@@ -119,7 +119,7 @@ ul.publication-item > li {
 	font-size: 15px;
 	text-align:justify;
 	line-height:130%;
-	margin: 15px 10% 0px 10%;
+	margin: 10px 10% 0px 10%;
 }
 
 .hv-line {
