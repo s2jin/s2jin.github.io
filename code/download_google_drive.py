@@ -1,8 +1,5 @@
-import sys
-import io
-import requests
-
 def download_file_from_google_drive(id, destination):
+	import requests
 	URL = "https://docs.google.com/uc?export=download"
 
 	session = requests.Session()
@@ -37,10 +34,3 @@ def save_response_content(response, destination):
 def download(url, destination):
 	file_id = url.split('/')[5]
 	download_file_from_google_drive(file_id, destination)
-
-if __name__ == "__main__":
-	## 구글 드라이브 공유 링크를 직접 코드에서 다운로드받을 수 있도록 수정
-	print(sys.argv)
-	url = sys.argv[1]
-	destination = sys.argv[2]
-	download(url, destination)
