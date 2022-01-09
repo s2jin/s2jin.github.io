@@ -23,7 +23,7 @@ class App{
         this.ball = new Ball(this.canvas.width, this.canvas.height, 30, 10);
         this.block = new Block(500, 30, 300, 450); // w, h, x, y
 
-        //window.requestAnimationFrame(this.animate.bind(this));
+        window.requestAnimationFrame(this.animate.bind(this));
     }
     
     animate(t) {
