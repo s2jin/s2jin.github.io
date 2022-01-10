@@ -1,16 +1,20 @@
 export class Block{
     constructor(width, height, x, y){
+			this.update(width, height, x, y)
+    }
+
+		update(width, height, x, y){
         this.width = width;
         this.height = height;
         this.x = x;
         this.y = y;
         this.max_x = width + x;
         this.max_y = height + y;
-    }
+		}
 
     draw(ctx){
-        const x_gap = 80;
-        const y_gap = 60;
+        const x_gap = this.x/2;
+        const y_gap = this.y/4;
 
         ctx.fillStyle = '#ff384e';
         ctx.beginPath();
