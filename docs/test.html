@@ -54,8 +54,8 @@
                         $('.comment').empty();
 
                     $.ajax({
-                            type: "POST",
-                            url: '/~airdemo/lg_2023_demo/',
+                            type: "GET",
+                            url: 'air.changwon.ac.kr/~airdemo/lg_2023_demo/api?평가 문장입니다.',
                                 data: JSON.stringify({"input":input}),
                             dataType: 'JSON',
                             contentType: "application/json",
