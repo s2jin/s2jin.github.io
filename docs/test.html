@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>한국어 매뉴얼 교정 문장 추천</title>
+    <link rel="icon" href="{{url_for('static',filename='img/icon.png')}}" type="image/x-icon">
+
+    <!-- Bootstrap -->
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- main css -->
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+</head>
+
+<body>
+    <!-- top-bar -->
+    <div class="top-bar">
+        <h1>한국어 매뉴얼 교정 문장 추천</h1>
+        <p><a href="https://www.changwon.ac.kr/ce/main.do">CWNU</a> / <a href="http://air.changwon.ac.kr/">AIR LAB</a></p>
+    </div>
+    <!-- end top-bar -->
+
+    <!-- main-container -->
+    <div class="container main-container">
+          
+            <h3 style="text-align:center; font-size: 35px">매뉴얼 문장 입력</h3><br>
+            <!--<textarea id=input name="news" type='text' style="word-break: break-all; resize: none; ">기기 항목에서 리모컨의 &lt;icon id=&quot;t_00067977_r3_20210609154450293_114&quot; type=&quot;rac_n_sac&quot;&gt;L&lt;/icon&gt; &lt;icon id=&quot;t_00067977_r3_20210609154450293_116&quot; type=&quot;rac_n_sac&quot;&gt;M&lt;/icon&gt; 버튼을 눌러 소리크기를 선택한 다음 설정/OK 버튼을 누르세요.
+                </textarea>-->
+                <select id='input' style='height: 50px; width: 100%; font-size:20px;'>
+                        <option style='font-size:15px' value="None" selected="selected">Example</option>
+                        <option value="연결 방법은 실내기에서는 플레어 연결, 실외기 배관과 분지되는 부분은 용접으로 연결합니다.">연결 방법은 실내기에서는 플레어 연결, 실외기 배관과 분지되는 부분은 용접으로 연결합니다.</option>
+                        <option value="배관 작업 전에 실외기 서비스 밸브에 부착되어 있는 누설 방지 캡을 제거해주세요.">배관 작업 전에 실외기 서비스 밸브에 부착되어 있는 누설 방지 캡을 제거해주세요.</option>
+                        <option value="서비스 포트를 이용하여 내부에 남아있는 잔여 냉매 혹은 공기를 빼내어 주세요.">서비스 포트를 이용하여 내부에 남아있는 잔여 냉매 혹은 공기를 빼내어 주세요.</option>
+                        <option value="매직 스페이스 내부 케이스를 들어 올려 분리해주세요.">매직 스페이스 내부 케이스를 들어 올려 분리해주세요.</option>
+                        <option value="전원 플러그에 물기나 먼지가 묻어 있으면 완전히 제거한 후 콘센트에 단단히 꽂아주세요.">전원 플러그에 물기나 먼지가 묻어 있으면 완전히 제거한 후 콘센트에 단단히 꽂아주세요.</option>
+                        <option value="제품 문의 힌지가 파손되었거나 작동이 원활하지 않을 때는 사용을 중단하고 LG전자 서비스 센터로 연락하세요.">제품 문의 힌지가 파손되었거나 작동이 원활하지 않을 때는 사용을 중단하고 LG전자 서비스 센터로 연락하세요.</option>
+                        <option value="꺼짐 버튼을 눌러 기능 끄고, 켜짐 버튼을 눌러 기능을 켜세요.">꺼짐 버튼을 눌러 기능 끄고, 켜짐 버튼을 눌러 기능을 켜세요.</option>
+                        <option value="버튼의 중간 부분을 누르지 않거나 손톱이나 손끝으로 누르면 작동이 안될 수 있습니다.">버튼의 중간 부분을 누르지 않거나 손톱이나 손끝으로 누르면 작동이 안될 수 있습니다.</option>
+                        <option value="설치할 때 제품 뒷면이 노출되지 않도록 주의하세요.">설치할 때 제품 뒷면이 노출되지 않도록 주의하세요.</option>
+                        <option value="캡슐이 손상되어 내용물이 노출되어 있을 경우, 맥주맛에 영향이 있을 수 있으니 사용하지 마세요.">캡슐이 손상되어 내용물이 노출되어 있을 경우, 맥주맛에 영향이 있을 수 있으니 사용하지 마세요.</option>
+                </select>
+            <br><br><br>
+            <button name='submit' style="font-weight: bold" class='submit' id='submit'>추천 받기</button>
+            <script src="https://code.jquery.com/jquery-latest.min.js"></script>
+            <script>    
+                    $('#submit').click(function(e) {
+                    e.preventDefault();
+                    var input = $('#input').val()
+                        $('.comment').empty();
+
+                    $.ajax({
+                            type: "POST",
+                            url: '/~airdemo/lg_2023_demo/',
+                                data: JSON.stringify({"input":input}),
+                            dataType: 'JSON',
+                            contentType: "application/json",
+                            success: function(result) {     
+                                    if(result.result==0){                                
+                                            alert('too short sentence');  
+                                            $('.comment').empty();
+                                    }else{
+                                            $('.comment').empty();
+                                            $('.comment').append(result.result);
+                                    }
+                            }
+                    });
+                 });
+        </script>
+        <br><br><br>
+
+        <h3 style="text-align:center; font-size: 35px">추 천 문 장</h3>
+        <div class='comment' style="border: solid 0.3px transparent; border border-bottom-left-radius: 4px; border-bottom-right-radius: 24px; border-top-left-radius: 24px; border-top-right-radius: 4px;text-align: left; font-size: 18px; padding: 30px; color: black;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.3)"></div>
+
+        <br><br><br>
+
+    </div>
+
+    <!-- end main-container -->
+
+
+    <!-- footer -->
+    <footer>
+        <div class="container-fluid">
+            <p class="copyright">© 창원대학교 컴퓨터공학과</p>
+        </div>
+    </footer>
+    <!-- end footer -->
+    
+</body>
+
+</html>
