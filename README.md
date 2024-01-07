@@ -1,2 +1,0 @@
-- 홈페이지: https://s2jin.github.io/  
-- 블로깅: https://s2jin-digital-garden.netlify.app/ [![Netlify Status](https://api.netlify.com/api/v1/badges/03a9cb1d-65aa-4026-a5c6-f39fe788435b/deploy-status)](https://app.netlify.com/sites/s2jin-digital-garden/deploys)
