@@ -7,7 +7,7 @@
 .mac-os-11 { --title-bar-height: 28px; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 h1, h2, h3, h4, h5 { white-space: pre-wrap; }
-body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; tab-size: 4; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.428571; overflow-x: hidden; background: inherit; }
 iframe { margin: auto; }
 a.url { word-break: break-all; }
 a:active, a:hover { outline: 0px; }
@@ -203,6 +203,20 @@ mark .md-meta { color: rgb(0, 0, 0); }
 .typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
 .md-inline-math-container mjx-container { zoom: 0.95; }
 mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left-width: 0.25em; border-left-style: solid; border-left-color: rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
 
 
 /* roboto-300 - latin */
@@ -230,20 +244,20 @@ mjx-container { break-inside: avoid; }
     --bg-color: white;
     --side-bar-bg-color: #f5f7f9;
     --control-text-color: #3b454e;
-    --primary-color: #3884ff;
-    --primary-btn-border-color: #3884ff;
+    --primary-color: #15ac8e;
+    --primary-btn-border-color: #15ac8e;
     --active-file-bg-color: #e6ecf1;
     --active-file-text-color: inherit;
-    --active-file-border-color: #3884ff;
+    --active-file-border-color: #15ac8e;
     --item-hover-text-color: #242a31;
     --item-hover-bg-color: #f5f7f9;
     --window-border: 1px solid #e6ecf1;
     --select-text-font-color: white;
-    --select-text-bg-color: #1968e6;
+    --select-text-bg-color: #11977d;
 
     --md-char-color: #9daab6;
     --heading-char-color: #9daab6;
-    --meta-content-color: #3884ff;
+    --meta-content-color: #15ac8e;
 
     --borders: #e6ecf1;
     --table-border-color: #e6ecf1;
@@ -261,10 +275,10 @@ mjx-container { break-inside: avoid; }
     --codeboxes-lighter: #1c375f;
     --rawblock-edit-panel-bd: transparent;
 
-    --primary-color-darkest: #001f50;
-    --primary-color-darker2: #00307c;
-    --primary-color-darker: #1968e6;
-    --focus-ring-color: #3884ff;
+    --primary-color-darkest: #083d33;
+    --primary-color-darker2: #0d5748;
+    --primary-color-darker: #11977d;
+    --focus-ring-color: #15ac8e;
 
     --danger-color: rgb(255, 70, 66);
 
@@ -285,11 +299,7 @@ mjx-container { break-inside: avoid; }
 html,
 .form-control,
 .modal {
-    font-size: 20px;
-}
-
-kbd {
-    font-family: var(--font-family);
+    font-size: 16px;
 }
 
 body {
@@ -441,21 +451,6 @@ h6 {
     margin-bottom: 0.5rem;
 }
 
-#write > h1.md-focus:before,
-#write > h2.md-focus:before,
-#write > h3.md-focus:before,
-#write > h4.md-focus:before,
-#write > h5.md-focus:before,
-#write > h6.md-focus:before {
-    color: var(--light-text-color);
-    border: none;
-    position: absolute;
-    font-size: 0.9rem;
-    font-weight: 500;
-    padding: 0px;
-    line-height: 1;
-}
-
 #write > h1.md-focus:before {
     content: "h1";
     top: 1.15rem;
@@ -490,6 +485,21 @@ h6 {
     content: "h6";
     top: 0.25rem;
     left: -1.75rem;
+}
+
+#write > h1.md-focus:before,
+#write > h2.md-focus:before,
+#write > h3.md-focus:before,
+#write > h4.md-focus:before,
+#write > h5.md-focus:before,
+#write > h6.md-focus:before {
+    color: var(--light-text-color);
+    border: none;
+    position: absolute;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0px;
+    line-height: 1;
 }
 
 h1:first-child,
@@ -732,6 +742,8 @@ table tr td:last-child {
     border-radius: 0px;
     color: white;
     height: 100%;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
@@ -903,7 +915,7 @@ table tr td:last-child {
 .md-fences,
 tt {
     border-radius: 0.3rem;
-    color: white;
+    color: #ffffff;
     padding: 1.5rem;
     font-size: 0.8rem;
 }
@@ -917,7 +929,7 @@ code {
     -webkit-box-decoration-break: clone;
 }
 
-.md-fences div.CodeMirror-cursor,
+.md-fences .CodeMirror div.CodeMirror-cursor,
 #typora-source div.CodeMirror-cursor {
     border-left: solid 1px white;
 }
@@ -1179,7 +1191,7 @@ input[type="checkbox"]:checked:after {
     color: #156db6;
 }
 
-.md-rawblock-input span.cm-bracket {
+.md-mathblock-input span.cm-bracket {
     color: var(--light-text-color);
 }
 
@@ -1231,14 +1243,14 @@ footer.ty-footer {
     opacity: 1;
 }
 
-.info-panel-tab-border {
-    color: var(--primary-color);
-    border-radius: 2px;
-}
-
 .sidebar-tab {
     text-transform: capitalize;
     color: var(--light-text-color);
+}
+
+.info-panel-tab-border {
+    color: var(--primary-color);
+    border-radius: 2px;
 }
 
 #ty-sidebar-search-back-btn {
@@ -1402,7 +1414,7 @@ body.html-for-mac .ty-search-item {
     margin-left: 24px;
 }
 
-body.o #typora-sidebar .ty-search-item-line {
+body.html-for-mac #typora-sidebar .ty-search-item-line {
     transition-duration: 0.2s;
 }
 
@@ -1443,6 +1455,16 @@ body.o #typora-sidebar .ty-search-item-line {
     opacity: 0.9;
 }
 
+#typora-sidebar input.file-list-item-file-name {
+    margin: 0.5rem 0rem 0.5rem 0.7rem;
+    padding: 0.4rem !important;
+    line-height: 1rem;
+    float: right;
+    border-radius: 0.3rem;
+    font-weight: 500;
+    background-color: white !important;
+}
+
 #typora-sidebar .file-list-item-count {
     font-size: 0.75rem;
     background-color: var(--primary-color);
@@ -1454,16 +1476,6 @@ body.o #typora-sidebar .ty-search-item-line {
     line-height: 1.25rem;
     position: relative;
     top: 0.3rem;
-}
-
-#typora-sidebar input.file-list-item-file-name {
-    margin: 0.5rem 0rem 0.5rem 0.7rem;
-    padding: 0.4rem !important;
-    line-height: 1rem;
-    float: right;
-    border-radius: 0.3rem;
-    font-weight: 500;
-    background-color: white !important;
 }
 
 #typora-sidebar .file-list-item.file-library-file-node {
@@ -1868,9 +1880,9 @@ body.html-for-mac
 .dropdown-menu > .active > a,
 .dropdown-menu > li > a:hover,
 .menu-style-btn.active,
+.auto-suggest-container li:hover,
 .context-menu.dropdown-menu > .active > a,
 .context-menu.dropdown-menu > li > a:hover,
-.auto-suggest-container li:hover,
 .auto-suggest-container li.active {
     color: var(--primary-color);
     background-color: var(--boxes);
@@ -2242,6 +2254,7 @@ html input[type="number"],
     height: 2.1rem !important;
     transition-duration: 0.2s;
     transition-property: border;
+    cursor: text;
 }
 
 select {
@@ -2249,8 +2262,7 @@ select {
 }
 
 input[type="text"],
-input[type="number"],
-#md-grid-height {
+input[type="number"] {
     cursor: text;
 }
 
@@ -2575,7 +2587,7 @@ textarea:focus {
     border: 1px solid transparent;
     color: white !important /*important required*/;
     box-shadow: rgba(116, 129, 141, 0.1) 2px 2px 6px,
-        rgba(56, 132, 255, 0.2) 0px 0px 10px;
+        rgba(26, 168, 139, 0.2) 0px 0px 10px;
 }
 
 #m-import-local:hover .preference-item-hint {
@@ -2593,7 +2605,7 @@ textarea:focus {
     max-width: none;
     padding: 1.5rem;
     background-color: var(--boxes);
-    border-radius: 0rem;
+    border-radius: 0.5rem;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 1.5rem;
@@ -2705,107 +2717,44 @@ kbd {
 
 
  @media print { @page {margin: 0 0 0 0;} body.typora-export {padding-left: 0; padding-right: 0;} #write {padding:0;}} .typora-export li, .typora-export p, .typora-export,  .footnote-line {white-space: normal;} h1,h2,h3,h4,h5 {white-space:pre-line}
-</style><title>Seong SuJin CV</title>
+</style><title>homepage_240412</title>
 </head>
 <body class='typora-export typora-export-show-outline typora-export-collapse-outline'><div class='typora-export-content'>
-<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#center-stylefont-size15emsujin-seongcenter">SuJin Seong</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#education">Education</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#skills">Skills</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#projects">Projects</a></div><ul class="outline-children"></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='center-stylefont-size15emsujin-seongcenter'><center style="font-size:1.5em;"><span>SuJin Seong</span></center></h1><p style="display:none;"><img alt="프로필사진" src="https://air.changwon.ac.kr/img/scientist/SeongSuJin_square.jpg" style="width:150px; height: 150px; border-radius: 50%;"></p>
-	<center>
-		</br>
-		<a href="https://s2jin.github.io/blog" style="font-size:2em; padding:12px;"><i class="fa fa-file"></i></a>
-		<a href="https://s2jin.github.io/blog" style="font-size:2em; padding:12px;"><i class="fa fa-home"></i></a>
-		<a href="https://github.com/s2jin" style="font-size:2em; padding:12px;"><i class="fab fa-github"></i></a>
-		<a href="https://scholar.google.com/citations?hl=ko&user=U67bthUAAAAJ" style="font-size:2em; padding:20px;"><i class="fa fa-university"></i></a>
-	</center>
-	<h3><center style="font-size:1em;">NLP Researcher, Korean</center></h3>
-	<h5><center style="font_size:0.8em;"><a href="mailto:nous645@gmail.com">nous645@gmail.com</a><br/>010.2849.3653</center></h5>
-	<h2 id='education'><span>Education</span></h2>
-	<figure>
-		<table>
-			<tbody>
-				<tr><td><strong><span>Integrated Ph.D.</span></strong></td><td><span>컴퓨터･정보통신 전공</span><br/><span>March 2019 ~ February 2024</span></td></tr>
-				<tr><td><strong><span>B.S.</span></strong></td><td><span>컴퓨터공학과</span><br/><span>March 2015 ~ February 2019</span></td></tr>
-			</tbody>
-		</table>
-	</figure>
-	<h2 id='skills'><span>Skills</span></h2>
-	<figure>
-		<table>
-			<tbody>
-				<tr>
-					<td><strong><span>Python</span></strong></td>
-					<td>
-						<li><span>주력 언어</span></li>
-						<li><span> 데이터 수집부터 딥러닝 모델 개발 등 다양한 작업 수행 가능</span></li>
-					</td></tr>
-				<tr>
-					<td><strong><span>PyTorch</span></strong></td>
-					<td>
-						<li><span>HuggingFace Transformers 사용 및 수정 가능</span></li>
-						<li><span>딥러닝 분야 논문 내용 구현 가능</span></li>
-					</td>
-				</tr>
-				<tr>
-					<td><strong><span>Linux</span></strong></td>
-					<td>
-						<li><span>리눅스 CLI 환경에서 프로그램 개발 가능</span></li>
-						<li><span>Ubuntu 환경 설정 및 오류 대응 가능 / docker를 활용하여 다양한 운영체제에서 개발 가능</span></li>
-					</td>
-				</tr>
-				<tr>
-					<td><strong><span>NLP</span></strong></td>
-					<td>
-						<li><span>BERT, GPT, T5와 같은 다양한 Transformers 모델 변형에 대한 실험 및 개선 경험</span></li>
-						<li><span>Retrieval-Augmented Generation 중 하나인 REALM 모델 구현 경험</span></li>
-						<li><span>MeCab, nltk, Espresso 등을 활용한 형태소 분석과 같은 자연어처리 가능</span></li>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-	</figure>
-	<h2 id='projects'><span>Projects</span></h2>
-	<figure>
-		<table>
-			<thead>
-				<tr>
-					<th style='text-align:left;' ><span>Dynamic Mini-Batch Sampling for Imbalanced Data</span></th>
-					<th style='text-align:right;' >
-						<a href='https://github.com/s2jin'><span>github</span></a>
-						&nbsp;&nbsp;&nbsp;
-						<span> / </span>
-						&nbsp;&nbsp;&nbsp;
-						<a href='https://scholar.google.com/citations?view_op=view_citation&amp;hl=ko&amp;user=U67bthUAAAAJ&amp;citation_for_view=U67bthUAAAAJ:L8Ckcad2t8MC'><span>paper</span></a>
-					</th>
-				</tr>
-			</thead>
-		</table>
-	</figure>
-	<ul>
-		<li><p><span>불균형이 존재하는 분류 데이터의 Macro F1-Score의 향상을 목표로 함</span></p></li>
-		<li><p><span>저빈도 레이블의 학습량을 늘리기 위해 미니배치 샘플링 확률과 스케줄링을 통한 샘플링 선택 전략 고안</span></p></li>
-		<li><p><a href="https://pytorch.org/docs/1.13/" style="color:#3b454e;"><u><span>PyTorch</span></u></a><span>를 활용하여 제안 방법에 대한 모델 및 학습 코드 구현</span></p></li>
-	</ul>
-	<figure>
-		<table>
-			<thead>
-				<tr>
-					<th style='text-align:left;' ><span>Adapted Domain Vocabulary for Out-of-Vocabulary</span></th>
-					<th style='text-align:right;' >
-							<a href='https://github.com/s2jin/Adapted_Domain_Vocab'><span>github</span></a>
-							&nbsp;&nbsp;&nbsp;
-							<span> / </span>
-							&nbsp;&nbsp;&nbsp;
-							<a href='https://www.mdpi.com/1424-8220/23/6/3064'><span>paper</span></a>
-					</th>
-				</tr>
-			</thead>
-		</table>
-	</figure>
-	<ul>
-		<li><p><span>전문 도메인에 적용된 공개 사전학습 언어모델의 부적절한 토큰 분리 및 미등록단어 문제에 대한 개선을 목표로 함</span></p></li>
-		<li><p><a href="https://huggingface.co/docs/transformers/index" style="color:#3b454e;"><u><span>HuggingFact Transformers</span></u></a><span> 라이브러리 기반의 Tokenizer의 어휘 확장</span></p></li>
-		<li><p><span>기존 사전학습 언어모델의 token embeddings 추가 및 적응 실험 수행</span></p></li>
-	</ul>
-</div></div>
+<div class="typora-export-sidebar"><div class="outline-content"><li class="outline-item-wrapper outline-h1 outline-item-open"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#center-stylefont-size15emsujin-seongcenter">SuJin Seong</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#education">Education</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#skills">Skills</a></div><ul class="outline-children"></ul></li><li class="outline-item-wrapper outline-h2"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#projects">Projects</a></div><ul class="outline-children"><li class="outline-item-wrapper outline-h3 outline-item-single"><div class="outline-item"><span class="outline-expander"></span><a class="outline-label" href="#참여-연구원-2019-03--2024-02"><em>참여 연구원 (2019. 03. ~ 2024. 02.)</em></a></div><ul class="outline-children"></ul></li></ul></li></ul></li></div></div><div id='write'  class=''><h1 id='center-stylefont-size15emsujin-seongcenter'><center style="font-size:1.5em;"><span>SuJin Seong</span></center></h1><p style="display:none;">
+<img alt="프로필사진" src="https://air.changwon.ac.kr/img/scientist/SeongSuJin_square.jpg" style="width:150px; height: 150px; border-radius: 50%;">
+</p><center>
+  <a href="https://s2jin.github.io/blog" style="font-size:2em; padding:12px;"><i class="fa fa-file"></i></a>
+  <a href="https://s2jin.github.io/blog" style="font-size:2em; padding:12px;"><i class="fa fa-home"></i></a>
+  <a href="https://github.com/s2jin" style="font-size:2em; padding:12px;"><i class="fab fa-github"></i></a>
+  <a href="https://scholar.google.com/citations?hl=ko&user=U67bthUAAAAJ" style="font-size:2em; padding:20px;"><i class="fa fa-university"></i></a>
+</center><h3><center style="font-size:1em;">NLP Researcher, Korean</center></h3>
+<h5><center style="font_size:0.8em;"><a href="mailto:nous645@gmail.com">nous645@gmail.com</a><br/>010.2849.3653</center></h5><h2 id='education'><span>Education</span></h2><table>
+  <tr> 
+    <td><b>Integrated Ph.D.</b></td>
+    <td>컴퓨터･정보통신 전공<br/>March 2019 ~ February 2024</td>
+  </tr>
+  <tr>
+    <td><b>B.S.</b></td>
+    <td>컴퓨터공학과<br/>March 2015 ~ February 2019</td>
+  </tr>
+</table><h2 id='skills'><span>Skills</span></h2><table>
+  <tr> 
+    <td><b>Python</b></td>
+    <td><li>주력 언어</li><li> 데이터 수집부터 딥러닝 모델 개발 등 다양한 작업 수행 가능</li></td>
+  </tr>
+  <tr>
+    <td><b>PyTorch</b></td>
+    <td><li>HuggingFace Transformers 사용 및 수정 가능</li> <li>딥러닝 분야 논문 내용 구현 가능</li></td>
+  </tr>
+  <tr>
+    <td><b>Linux</b></td>
+    <td><li>리눅스 CLI 환경에서 프로그램 개발 가능</li><li>Ubuntu 환경 설정 및 오류 대응 가능 / docker를 활용하여 다양한 운영체제에서 개발 가능</li></td>
+  </tr>
+  <tr>
+    <td><b>NLP</b></td>
+    <td><li>BERT, GPT, T5와 같은 다양한 Transformers 모델 변형에 대한 실험 및 개선 경험</li><li>Retrieval-Augmented Generation 중 하나인 REALM 모델 구현 경험</li><li>MeCab, nltk, Espresso 등을 활용한 형태소 분석과 같은 자연어처리 가능</li></td>
+  </tr>
+</table><h2 id='projects'><span>Projects</span></h2><h3 id='참여-연구원-2019-03--2024-02'><em><span style="color: #AAA;"><span>참여 연구원 (2019. 03. ~ 2024. 02.)</span></span></em></h3><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span style="background-color: #DDF1E9"><span>Dynamic Mini-Batch Sampling for Imbalanced Data</span></span></th><th style='text-align:right;' ><a href='https://github.com/s2jin/D-Sampling_Imbalanced-CLS'><span>github</span></a>&nbsp;&nbsp;&nbsp;<span> / </span>&nbsp;&nbsp;&nbsp;<a href='https://koreascience.kr/article/CFKO202130060787848.page'><span>paper</span></a></th></tr></thead><tbody></tbody></table></figure><ul><li><p><strong><span>클래스 불균형</span></strong><span>이 존재하는 분류 데이터의 Macro F1-Score의 향상을 목표로 함</span></p></li><li><p><span>저빈도 클래스의 데이터가 부족하고 이에 저빈도 클래스의 성능이 낮은 것을 문제로 정의</span></p></li><li><p><strong><span>저빈도 레이블의 학습량을 늘리기 위해 클래스 샘플 수 기반의 미니배치 샘플링 확률을 정의</span></strong><span>하는 방법 제안</span></p></li><li><p><span>특정 샘플에 편향되는 것을 막기 위해 </span><strong><span>스케줄링을 통한 샘플링 선택 전략</span></strong><span> 고안</span></p></li><li><p><span>Sequencial Sampling 및 </span><a href="https://arxiv.org/abs/1911.08050" style="color:#3b454e;"><u><span>Recency Bias</span></u></a><span> 적용 실험과 비교하여 높은 성능을 달성</span></p></li></ul><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span style="background-color: #DDF1E9"><span>Adapted Domain Vocabulary for Out-of-Vocabulary</span></span></th><th style='text-align:right;' ><a href='https://github.com/s2jin/Adapted_Domain_Vocab'><span>github</span></a>&nbsp;&nbsp;&nbsp;<span> / </span>&nbsp;&nbsp;&nbsp;<a href='https://www.mdpi.com/1424-8220/23/6/3064'><span>paper</span></a></th></tr></thead><tbody></tbody></table></figure><ul><li><p><span>전문 도메인에 적용된 공개 사전학습 언어모델의 </span><strong><span>부적절한 토큰 분리</span></strong><span> 및 </span><strong><span>미등록단어 문제</span></strong><span>에 대한 개선을 목표로 함</span></p></li><li><p><strong><span>제한된 학습 데이터 및 학습 시간</span></strong><span>에 적용할 수 있는 방법 필요</span></p></li><li><p><span>형태소 분석과 Wordpiece Tokenizer를 사용하여 도메인 특화 어휘를 추출</span></p></li><li><p><span>기존 사전학습 언어모델의 </span><strong><span>Token Embeddings를 확장</span></strong><span> 및 초기화</span></p></li><li><p><strong><span>2번의 fine-tuning 학습을 통해 추가된 도메인 확장 어휘를 적응</span></strong><span>시키는 방법 제안</span></p></li></ul><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span style="background-color: #DDF1E9"><span>Retriever-based Few-shot Classification</span></span></th><th style='text-align:right;' ><a href='https://github.com/s2jin/RAG_Few-Shot_CLS'><span>github</span></a>&nbsp;&nbsp;&nbsp;<span> / </span>&nbsp;&nbsp;&nbsp;<a href='https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11488031'><span>paper</span></a></th></tr></thead><tbody></tbody></table></figure><ul><li><p><strong><span>분류 클래스가 시간에 따라 변경되는 다운스트림 태스크</span></strong><span>에서 재학습하지 않고 수정된 클래스에 대응하는 것을 목표로 함</span></p></li><li><p><a href="https://huggingface.co/docs/transformers/index" style="color: #3b454e;"><u><span>HuggingFace</span></u></a><span> 클래스를 기반으로 </span><a href="https://arxiv.org/abs/2002.08909" style="color: #3b454e;"><u><span>REALM</span></u></a><span> 구조로 </span><strong><span>모델 구현</span></strong><span> </span></p></li><li><p><strong><span>분류 태스크에서의 외부 지식 형태를 정의</span></strong><span>하고 BERT 기반의 외부 지식 검색기 구현</span></p></li><li><p><span>Zero-shot 생성 성능이 안정적인 </span><a href="https://huggingface.co/skt/ko-gpt-trinity-1.2B-v0.5" style="color: #3b454e;"><u><span>SKT의 ko-gpt-trinity-1.2B-v0.5</span></u></a><span>를 통해 검색된 외부 지식 정보에 의존한 클래스 생성</span></p></li><li><p><span>새로운 클래스에 대한 외부 지식이 추가되었을 때 바로 예측 결과에 반영될 수 있음을 확인</span></p></li></ul><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span style="background-color: #DDF1E9"><span>Science &amp; Technology NER</span></span></th><th style='text-align:right;' ><a href='https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11488056'><span>paper</span></a></th></tr></thead><tbody></tbody></table></figure><ul><li><p><span>PLM의 활용성 검증을 위해 </span><strong><span>과학기술 도메인의 한국어 상세개체 태깅 클래스 정의 및 데이터 구축</span></strong><span> 필요</span></p></li><li><p><span>&quot;보건의료&quot; 분야의 데이터를 구축하기 위해 &quot;</span><a href="https://id.nlm.nih.gov/mesh/" style="color: #3b454e;"><u><span>MeSH</span></u></a><span>&quot; 의학용어 분류집의 </span><strong><span>RDF 파일 분석 및 영어 용어 자동 번역</span></strong></p></li><li><p><span>문자열 매칭으로 </span><strong><span>자동 태깅 후 7명의 외부 작업자들을 통해 수작업 정제</span></strong><span> 수행</span></p></li><li><p><strong><span>3만 문장의 상세개체 태깅 데이터 구축</span></strong><span> 및 문자열 검색 기반 태깅 결과 Macro-F1 71.84를 달성함을 확인</span></p></li></ul><figure class='table-figure'><table><thead><tr><th style='text-align:left;' ><span style="background-color: #DDF1E9"><span>Keyword-to-Text for Supporting Facts</span></span></th><th style='text-align:right;' ><a href='https://www.dbpia.co.kr/journal/articleDetail?nodeId=NODE11488056'><span>paper</span></a></th></tr></thead><tbody></tbody></table></figure><ul><li><p><span>정형화된 지식베이스를 참고하여 </span><strong><span>질문에 대한 답변과 근거 문장을 제공</span></strong><span>하는 것을 목표로 함</span></p></li><li><p><strong><span>Wikidata와 DBpedia의 RDF 파일 분석 및 추가 데이터 크롤링</span></strong></p></li><li><p><span>T5와 BART 모델에 </span><strong><span>Pointer-Generator Network를 추가 구현</span></strong></p></li><li><p><span>질문과 관련된 n-triple을 입력으로 근거문장을 생성하고 생성된 근거문장과 질문을 입력으로 정답을 생성하는 모델 학습</span></p></li><li><p><span>지식베이스를 사람이 이해하기 쉬운 문장으로 제공하며 답변 생성에도 도움이 됨을 확인</span></p></li></ul></div></div>
 
-<script>(function (){var t=document.body.parentElement,e=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(t,e,n){document.addEventListener(t,function(t){if(!t.defaultPrevented)for(var i=t.target;i&&i!=this;i=i.parentNode)if(i.matches(e)){!1===n.call(i,t)&&(t.preventDefault(),t.stopPropagation());break}},!1)};function o(){return t.scrollTop}r("click",".outline-expander",function(t){var e=this.closest(".outline-item-wrapper").classList;return e.contains("outline-item-open")?e.remove("outline-item-open"):e.add("outline-item-open"),c(),!1}),r("click",".outline-item",function(t){var e=this.querySelector(".outline-label");if(location.hash="#"+e.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),l(),n.add("outline-item-active")}});var a,s,u=function(){var t=o();n=null;for(var i=0;i<e.length&&e[i][1]-t<60;i++)n=e[i]},l=function(){document.querySelectorAll(".outline-item-active").forEach(t=>t.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(t=>t.classList.remove("outline-item-open"))},c=function(){if(n){l();var t=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(t)if(i){var e=t.closest(".outline-item-open>ul>.outline-item-wrapper");if(e)e.classList.add("outline-item-active");else{for(var r=(t=t.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(t=r).parentElement.closest(".outline-item-wrapper");t.classList.add("outline-item-active")}}else t.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(t){a&&clearTimeout(a),a=setTimeout(function(){u(),c()},300)});var f=function(){s=setTimeout(function(){!function(){e=[];var t=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");e.push([i,t+n.getBoundingClientRect().y])})}(),u(),c()},300)};window.addEventListener("resize",function(t){s&&clearTimeout(s),f()}),f()})();</script><style type="text/css">body {font-family:"Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;}</style></body>
+<script>(function (){var e=document.body.parentElement,t=[],n=null,i=document.body.classList.contains("typora-export-collapse-outline"),r=function(e,t,n){document.addEventListener(e,function(e){if(!e.defaultPrevented)for(var i=e.target;i&&i!=this;i=i.parentNode)if(i.matches(t)){!1===n.call(i,e)&&(e.preventDefault(),e.stopPropagation());break}},!1)};function o(){return e.scrollTop}r("click",".outline-expander",function(e){var t=this.closest(".outline-item-wrapper").classList;return t.contains("outline-item-open")?t.remove("outline-item-open"):t.add("outline-item-open"),d(),!1}),r("click",".outline-item",function(e){var t=this.querySelector(".outline-label");if(location.hash="#"+t.getAttribute("href"),i){var n=this.closest(".outline-item-wrapper").classList;n.contains("outline-item-open")||n.add("outline-item-open"),c(),n.add("outline-item-active")}});var a,s,l=function(){var e=o();n=null;for(var i=0;i<t.length&&t[i][1]-e<60;i++)n=t[i]},c=function(){document.querySelectorAll(".outline-item-active").forEach(e=>e.classList.remove("outline-item-active")),document.querySelectorAll(".outline-item-single.outline-item-open").forEach(e=>e.classList.remove("outline-item-open"))},d=function(){if(n){c();var e=document.querySelector('.outline-label[href="#'+(CSS.escape?CSS.escape(n[0]):n[0])+'"]');if(e)if(i){var t=e.closest(".outline-item-open>ul>.outline-item-wrapper");if(t)t.classList.add("outline-item-active");else{for(var r=(e=e.closest(".outline-item-wrapper")).parentElement.closest(".outline-item-wrapper");r;)r=(e=r).parentElement.closest(".outline-item-wrapper");e.classList.add("outline-item-active")}}else e.closest(".outline-item-wrapper").classList.add("outline-item-active")}};window.addEventListener("scroll",function(e){a&&clearTimeout(a),a=setTimeout(function(){l(),d()},300)});var u=function(){s=setTimeout(function(){!function(){t=[];var e=o();document.querySelector("#write").querySelectorAll("h1, h2, h3, h4, h5, h6").forEach(n=>{var i=n.getAttribute("id");t.push([i,e+n.getBoundingClientRect().y])})}(),l(),d()},300)};window.addEventListener("resize",function(e){s&&clearTimeout(s),u()}),u()})();</script><style type="text/css">body {font-family:"Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;}</style></body>
 </html>
